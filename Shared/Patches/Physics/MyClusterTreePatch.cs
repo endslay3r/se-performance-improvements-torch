@@ -157,8 +157,10 @@ namespace Shared.Patches
 
             var collidedObjectKeys = CollidedObjectKeysPool.IsValueCreated ? CollidedObjectKeysPool.Value : CollidedObjectKeysPool.Value = new HashSet<ulong>(4096);
 
+#if DEBUG
             if (Logger.IsDebugEnabled)
-                Logger.Debug($"{nameof(MyClusterTreePatch)}.{nameof(OptimizedImplementation)}: objectsData.Count={objectsData.Count}, collidedObjectKeys.Count={collidedObjectKeys.Count}");
+                Logger.Debug("{nameof(MyClusterTreePatch)}.{nameof(OptimizedImplementation)}: objectsData.Count={objectsData.Count}, collidedObjectKeys.Count={collidedObjectKeys.Count}");
+#endif
             
             foreach (MyClusterTree.MyCluster collidedCluster in resultList)
             {
